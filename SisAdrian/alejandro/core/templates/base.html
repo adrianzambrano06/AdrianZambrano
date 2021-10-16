@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FAFAFA;
+}
+
+li {
+    float:left;
+}
+
+li a {
+    display: block;
+    color: #2DEE30;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: align;
+}
+
+li a:hover {
+    background-color: #0BF1C1;
+}
+
+</style>
+    <title>
+        {% block TituloHija%} {%endblock%}
+    </title>
+    {% load static %}
+    <link style="background-color:#1d05fa;">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/fontello.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+
+</head>
+
+<body style="background-color:#FAE705;">
+<style type="text/css">
+  body {
+    font-family: Bodoni MT Black, "Times New Roman",
+          Times, serif;
+    color: #000000;
+    background-color: #d1052a }
+  h1 {
+    font-family: Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif }
+  </style>
+
+<ul id=”button”>
+	<li><a href="{% url 'inicio' %}">INICIO
+	<div class="d-flex flex-column text-center">
+		<img src="{% static 'core/img/house-fill.svg' %}" width="100" height="30"/>
+	</div></a></li>
+    <li><a href="{% url 'grupolistar' %}">GRUPOS
+	<div class="d-flex flex-column text-center">
+		<img src="{% static 'core/img/people-fill.svg' %}" width="100" height="30"/>
+	</div></a></li>
+    <li><a href="{% url 'productolistar' %}">PRODUCTOS
+		<div class="d-flex flex-column text-center">
+		<img src="{% static 'core/img/briefcase-fill.svg' %}" width="100" height="30"/>
+	</div></a></li>
+    <li><a href="{% url 'proveedorlistar' %}">PROVEEDOR
+		<div class="d-flex flex-column text-center">
+		<img src="{% static 'core/img/person-fill.svg' %}" width="100" height="30"/>
+	</div></a></li>
+    <li><a href="{% url 'clientelistar' %}">CLIENTE
+		<div class="d-flex flex-column text-center">
+		<img src="{% static 'core/img/person-fill.svg' %}" width="100" height="30"/>
+	</div></a></li>
+    <li><a href="">COMPRAS
+		<div class="d-flex flex-column text-center">
+		<img src="{% static 'core/img/cart-check-fill.svg' %}" width="100" height="30"/>
+	</div></a></li>
+    <li><a href="">VENTA
+		<div class="d-flex flex-column text-center">
+		<img src="{% static 'core/img/tag-fill.svg' %}" width="100" height="30"/>
+	</div></a></li>
+</ul>
+
+{%block contenidohijas%}
+
+{%endblock%}
+    <script src="{% static 'core/js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'core/js/popper.min.js' %}"></script>
+	<script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'core/js/scripts.js' %}"></script>
+</body>
+</html>

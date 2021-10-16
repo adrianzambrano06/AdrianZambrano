@@ -1,0 +1,45 @@
+{%extends 'base.html'%}
+{%block contenidohijas%}
+{% load static %}
+<center><h2>LISTA DE CLIENTES</h2></center>
+<center>
+	<p>
+		<a href="{% url 'clienteguardar' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">INGRESAR NUEVO REGISTRO</a>
+	</p>
+	<P>
+		<a href="{% url 'clientepdf' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">IMPRIMIR REGISTRO</a>
+	</P>
+</center>
+<center>
+	<table class="table table-success table-striped">
+	<TR>
+		<TH>ID</TH>
+		<TH>CEDULA</TH>
+		<TH>NOMBRE</TH>
+        <TH>TELEFONO</TH>
+		<TH>ACTIVADO/ANULADO</TH>
+        <TH>MODIFICAR</TH>
+		<TH>IMPRIMIR</TH>
+	</TR>
+        {%for presenta in object_list %}
+	<TR>
+		<TD>{{ presenta.id}}</TD>
+		<TD>{{ presenta.clientecedula}}</TD>
+		<TD>{{ presenta.clientenombre}}</TD>
+        <TD>{{ presenta.clientetelefono}}</TD>
+        <TD>{{ presenta.clienteanulado}}</TD>
+        <td><a href="{% url 'clientemodificar' presenta.id %}">
+			   <div class="d-flex flex-column text-center">
+				<img src="{% static 'core/img/person-check-fill.svg' %}" width="100" height="30"onclick="return confirm('¿Quieres modicar {{presenta.clientenombre}}?');">
+			</div></a></td>
+		<td><a href="{% url 'clienteindividual' presenta.id %}">
+			<div class="d-flex flex-column text-center">
+				<img src="{% static 'core/img/file-earmark-pdf-fill.svg' %}" width="100" height="30"/>
+			</div></a></td>
+    </TR>
+        {%endfor%}
+	</TABLE>
+</center>
+
+
+{%endblock%}

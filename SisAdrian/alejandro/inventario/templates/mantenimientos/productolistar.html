@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{%block contenidohijas%}
+{% load static %}
+<center><h2>LISTA DE PRODUCTOS</h2></center>
+<center>
+	<p>
+		<a href="{% url 'productoguardar' %}"  class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">INGRESAR NUEVO REGISTRO</a>
+	</p>
+	<P>
+		<a href="{% url 'productopdf' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">IMPRIMIR REGISTRO</a>
+	</P>
+</center>
+<center>
+    <table class="table table-success table-striped">
+	<TR>
+		<TH>ID</TH>
+		<TH>GRUPO</TH>
+		<TH>PRODUCTO</TH>
+		<TH>PRECIO VENTA</TH>
+		<TH>CÓDIGO</TH>
+ 		<TH>EXISTENCIA</TH>
+		<TH>ACTIVADO/ANULADO</TH>
+		<TH>MODIFICAR</TH>
+		<TH>IMPRIMIR</TH>
+	</TR>
+		{% for presenta in object_list %}
+	<TR>
+
+		<TD>{{ presenta.id }}</TD>
+		<TD>{{ presenta.productogrupo.gruponombre}}</TD>
+		<TD>{{ presenta.productonombre}}</TD>
+        <TD>{{ presenta.productopreciovta}}</TD>
+        <TD>{{ presenta.productocodigo}}</TD>
+        <TD>{{ presenta.productoexistencia}}</TD>
+        <TD><center>{{ presenta.productoanulado}}</center></TD>
+		<td><a href="{% url 'grupomodificar' presenta.id %}">
+			<div class="d-flex flex-column text-center">
+				<img src="{% static 'core/img/person-check-fill.svg' %}" width="100" height="30"
+					 onclick="return confirm('¿Quieres modicar {{presenta.gruponombre}}?');">
+			</div>
+		</a></td>
+		<td><a href="{% url 'grupoindividual' presenta.id %}">
+			<div class="d-flex flex-column text-center">
+				<img src="{% static 'core/img/file-earmark-pdf-fill.svg' %}" width="100" height="30"/>
+			</div>
+		</a></td>
+	</TR>
+     {% endfor %}
+</TABLE>
+</center>
+
+{% endblock %}

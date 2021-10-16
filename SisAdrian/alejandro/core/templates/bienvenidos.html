@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block contenidohijas%}
+{% load static %}
+<center><h2>SISTEMA DE INVENTARIO ADRIAN</h2></center>
+<div class="row slider">
+				<div class="col">
+					<div class="carousel slide" id="slider" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider" data-slide-to="0" class="active"></li>
+							<li data-target="#slider" data-slide-to="1"></li>
+							<li data-target="#slider" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<center><img src="{% static 'core/img/i1.jpg' %}" width="1200" height="300"/></center>
+							</div>
+							<div class="carousel-item">
+								<center><img src="{% static 'core/img/i2.jpg' %}" width="1200" height="300"/></center>
+							</div>
+							<div class="carousel-item">
+								<center><img src="{% static 'core/img/i3.png' %}" width="1200" height="300"/></center>
+							</div>
+						</div>
+
+						<a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Anterior</span>
+						</a>
+						<a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Siguiente</span>
+						</a>
+					</div>
+				</div>
+			</div>
+{%endblock%}

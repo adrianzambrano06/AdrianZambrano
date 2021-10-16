@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%block contenidohijas%}
+<center><h2>MODIFICAR REGISTRO DEL CLIENTE</h2></center>
+<center>
+    <p>
+        <a href="{% url 'clientelistar' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cancelar</a>
+    </p>
+</center>
+<center>
+    <form method="post">
+    {{form.as_p }}
+    {% csrf_token %}
+    <button type="submit">Guardar</button>
+</form>
+</center>
+{%endblock%}
